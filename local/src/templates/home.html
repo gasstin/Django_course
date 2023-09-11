@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
-<body>
-    <h1>Homepage</h1>
-    <p>Welcome</p>
-</body>
-</html>
+{% extends 'base.html' %}    
+
+{% block content %}
+<h1>Homepage</h1>
+<p>Welcome</p>
+
+<p>
+    {{ text }}, {{ favorite_number}}
+</p>
+<ul>
+    {% for number in list %}
+    <li>{{ forloop.counter }} => {{ number }}</li>
+    {% if (number + 1) %}
+    <p>Es impar</p>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock %}
